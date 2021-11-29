@@ -1,0 +1,70 @@
+version: "3.9"
+services:
+
+  listener:
+    build: ./eth_listener/
+    restart: unless-stopped
+    env_file:
+      - .env
+    links:
+      - rabbitmq
+    networks:
+      - rabbitmq_net
+    depends_on:
+      - mysqldb
+      - rabbitmq
+    volumes:
+      - ./eth_listener/config.json:/listener/config.json
+
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    container_name: 'rabbitmq'
+    restart: unless-stopped
+    ports:
+       - 15672:15672
+    volumes:
+        # - ~/.docker-conf/rabbitmq/etc/:/etc/rabbitmq/
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - rabbitmq_net
+
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    env_file: ./.mysql_env
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/.docker-conf/mysql/db:/var/lib/mysql
+    networks:
+      - rabbitmq_net
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    links:
+     - mysqldb:db
+    networks:
+     - rabbitmq_net
+
+  data_loader:
+    build: ./data_loader/
+    restart: unless-stopped
+    env_file:
+      - .mysql_env
+    links:
+      - rabbitmq:rabbitmq
+      - mysqldb:db
+    networks:
+      - rabbitmq_net
+    depends_on:
+      - mysqldb
+      - rabbitmq
+
+networks:
+  rabbitmq_net:
+    driver: bridge
