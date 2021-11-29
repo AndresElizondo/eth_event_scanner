@@ -1,0 +1,18 @@
+[
+  {
+    "contractAddress": "0xCBCdF9626bC03E24f779434178A73a0B4bad62eD",
+    "eventType": "Swap",
+    "filters": {},
+    "exchange": "uniswap.tx",
+    "queue": "uniswap.tx.swap",
+    "mq_routing_key": "uniswap.tx.swap"
+  },
+  {
+    "contractAddress": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+    "eventType": "Transfer",
+    "filters": {},
+    "exchange": "uniswap.tx",
+    "queue": "uniswap.tx.transfer",
+    "mq_routing_key": "uniswap.tx.transfer"
+  }
+]
