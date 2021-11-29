@@ -202,3 +202,4 @@ This should be shared with you via email.
 - Minify the data inserted to DB based on what's strictly necessary. (Mainly for WETH Transfer events)
 - Allow for simpler configuration of multiple listener and data_loader modules for deployment in a distributed environment.
 - Upgrade DB to something more robust and fitting based on intented use.
+- Add tools for back-filling event data on startup (based on what's already on DB).
