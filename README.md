@@ -51,6 +51,9 @@ Two config files are provided for the `listener`, `./eth_listener/config.json` a
 The first listens only for Uniswap Swap events. The second one also listens for WETH Transfer events.
 A single config file is provided for the `data_loader`, this works for both transactions types.
 
+Additionally, two `.env` files are needed for web3 credentials and DB credentials info.
+This should be shared with you via email.
+
 ## Future Work
 - Improve component code quality and modularity
 - Add resilience to listener and data_loader modules to tolerate failed DB & RabbitMQ connections.
