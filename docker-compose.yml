@@ -14,7 +14,7 @@ services:
       - mysqldb
       - rabbitmq
     volumes:
-      - ./eth_listener/config.json:/listener/config.json
+      - ./eth_listener/config_dual.json:/listener/config.json
 
   rabbitmq:
     image: rabbitmq:3.8-management-alpine
