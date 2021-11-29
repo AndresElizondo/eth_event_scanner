@@ -41,7 +41,18 @@ First we need some working directory setup:
 mkdir -p ~/.docker-conf/mysql
 mkdir -p ~/.docker-conf/rabbitmq
 ```
-Then start all components by running:
+Then, create DB and tables by using the sample `eth_tx.sql.gz` file.
+First, start the MySQL and Adminer
+```
+sudo docker-compose up mysqldb adminer
+```
+Then login with the credentials on `.mysql_env`.
+Go into `Import` and select the `eth_tx.sql.gz` file and click on `Execute`.
+This will create the DB `eth_tx` along with the tables `uniswap_tx_swap` and `uniswap_tx_transfer`.
+
+Now, you can stop the DB and Adminer on the terminal by presing `Ctrl + C`
+
+Finally, to start all components, run:
 ```
 sudo docker-compose up
 ```
