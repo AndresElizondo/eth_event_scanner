@@ -42,6 +42,7 @@ mkdir -p ~/.docker-conf/mysql
 mkdir -p ~/.docker-conf/rabbitmq
 ```
 Then, create DB and tables by using the sample `eth_tx.sql.gz` file.
+
 First, start the MySQL and Adminer
 ```
 sudo docker-compose up mysqldb adminer
@@ -61,6 +62,7 @@ sudo docker-compose up
 Two config files are provided for the `listener`, `./eth_listener/config.json` and `./eth_listener/config_dual.json`.
 The first listens only for Uniswap Swap events. The second one also listens for WETH Transfer events.
 A single config file is provided for the `data_loader`, this works for both transactions types.
+To change the config files used to run, modify the `volumes` in the `docker-compose.yaml` file.
 
 Additionally, two `.env` files are needed for web3 credentials and DB credentials info.
 This should be shared with you via email.
