@@ -1,0 +1,35 @@
+[
+  {
+    "exchange": "uniswap.tx",
+    "queue": "uniswap.tx.swap",
+    "tableName": "uniswap_tx_swap",
+    "ABI2TableMap": {
+      "txhash": "transactionHash",
+      "contractAddress": "address",
+      "blockNumber": "blockNumber",
+      "event": "event",
+      "signature": "signature",
+      "sender": "returnValues.sender",
+      "recipient": "returnValues.recipient",
+      "amount0": "returnValues.amount0",
+      "sqrtPriceX96": "returnValues.sqrtPriceX96",
+      "liquidity": "returnValues.liquidity",
+      "tick": "returnValues.tick"
+    }
+  },
+  {
+    "exchange": "uniswap.tx",
+    "queue": "uniswap.tx.transfer",
+    "tableName": "uniswap_tx_transfer",
+    "ABI2TableMap": {
+      "txhash": "transactionHash",
+      "contractAddress": "address",
+      "blockNumber": "blockNumber",
+      "event": "event",
+      "signature": "signature",
+      "sender": "returnValues.src",
+      "recipient": "returnValues.dst",
+      "total": "returnValues.wad"
+    }
+  }
+]
