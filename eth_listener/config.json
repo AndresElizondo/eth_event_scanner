@@ -1,7 +1,7 @@
 [
   {
-    "contractAddress": "0xCBCdF9626bC03E24f779434178A73a0B4bad62eD",
-    "eventType": "Swap",
+    "contractAddress": "0xcbcdf9626bc03e24f779434178a73a0b4bad62ed",
+    "eventType": "allEvents",
     "filters": {},
     "exchange": "uniswap.tx",
     "queue": "uniswap.tx.swap",
